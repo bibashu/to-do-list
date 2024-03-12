@@ -5,7 +5,7 @@ function addTask() {
   let taskText = taskInput.value;
 
   if (taskText === "") {
-    alert("Vous devez définir une tache")
+    // alert("Vous devez définir une tache")
     return
   }
   let li = document.createElement("li");
