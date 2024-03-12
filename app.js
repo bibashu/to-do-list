@@ -5,7 +5,8 @@ function addTask() {
   let taskText = taskInput.value;
 
   if (taskText === "") {
-    return;
+    alert("Vous devez définir une tache")
+    return
   }
   let li = document.createElement("li");
 
@@ -17,6 +18,11 @@ function addTask() {
   editButton.onclick = function () {
     editTask(li);
   };
+  let barrButton = document.createElement("button")
+  barrButton.innerHTML = '<ion-icon name="close-circle-outline"></ion-icon>';
+  barrButton.onclick = function () {
+    barreTask(li);
+  };
 
   let deleteNutton = document.createElement("Button");
 
@@ -26,6 +32,7 @@ function addTask() {
   };
 
   li.appendChild(editButton);
+  li.appendChild(barrButton);
   li.appendChild(deleteNutton);
 
   taskList.appendChild(li);
@@ -47,3 +54,13 @@ function editTask(task) {
 function deleteTask(task) {
     taskList.removeChild(task)
 }
+function barreTask (task){
+  if (task.style.textDecoration === 'line-through') {
+    task.style.textDecoration = 'none'; // Retirer la barre de tâche si elle est déjà présente
+  }
+  else{
+  task.style.textDecoration = 'line-through';
+  }
+}
+
+
